@@ -1,0 +1,11 @@
+Your numbers probably have some sort of spaces around them.
+
+1 option try selecting a column of cells and use the Text To Column feature to convert in place.
+
+If that does not work, the cells probably contain non-breaking spaces (HTML &nbsp), which is common when you copy-and-paste from web pages.
+
+In that case, in a parallel column, put the following formula and copy down the column, assuming your data is in column A:
+
+=--TRIM(SUBSTITUTE(A1,CHAR(160),""))
+
+Then copy the new column and use Paste Special Value and Number Formats to paste over the original data.  You can delete the new column.
